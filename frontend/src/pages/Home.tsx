@@ -349,6 +349,7 @@ function Home({ user }: NavbarProps) {
               readOnly={true}
               maxLength={spell.length}
               autoComplete="off"
+              style={{ color: "white" }}
             />
 
             <div>
