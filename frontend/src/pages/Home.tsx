@@ -342,6 +342,7 @@ function Home({ user }: NavbarProps) {
             }}
           >
             <input
+              className="homeinputs"
               type="text"
               value={value}
               onChange={(event) => setValue(event.target.value)}
@@ -349,7 +350,6 @@ function Home({ user }: NavbarProps) {
               readOnly={true}
               maxLength={spell.length}
               autoComplete="off"
-              style={{ color: "white !important" }}
             />
 
             <div>
@@ -359,6 +359,7 @@ function Home({ user }: NavbarProps) {
         ) : (
           <div>
             <input
+              className="homeinputs"
               type="text"
               value={value}
               onChange={(event) => setValue(event.target.value)}
