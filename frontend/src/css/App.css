@@ -1,0 +1,58 @@
+
+  body {
+    background-color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+  }
+  
+
+  .fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+
+  button {
+    background-color: #0066cc;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px ;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #004a99;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+
+
+  .alert {
+    background-color: red;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  

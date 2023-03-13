@@ -1,0 +1,12 @@
+.register-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    color: white;
+  }
+  
+  .register-form,
+  .login-form {
+    width: 300px;
+  }
+  

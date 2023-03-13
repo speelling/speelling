@@ -1,0 +1,50 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px;
+  color: white;
+}
+
+.navbar__left {
+  display: flex;
+  align-items: baseline;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #ffff;
+}
+
+.Title {
+  font-size: 20px;
+  font-family: Consolas, monaco, monospace;
+}
+
+.crown {
+  margin: 0 0 0 20px;
+  color:#28f;
+}
+
+.leaderboards {
+  margin: 0 5px;
+}
+
+.user {
+  display: flex;
+  margin-right: 1rem;
+}
+
+.usericon {
+  margin: 0 5px;
+}
+
+
