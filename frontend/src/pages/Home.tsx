@@ -77,7 +77,6 @@ function Home({ user }: NavbarProps) {
   const memoizedGetRandomWord = useMemo(() => {
     return (words: string[]) => {
       const randomIndex = Math.floor(Math.random() * words.length);
-      console.log(words[randomIndex]);
       setSpell(words[randomIndex]);
     };
   }, []);
