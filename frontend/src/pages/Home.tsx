@@ -202,11 +202,6 @@ function Home({ user }: NavbarProps) {
         return;
       }
 
-      if (name.length < 3) {
-        alert("name must be 3 characters or more");
-        return;
-      }
-
       if (!specialChars.test(name)) {
         alert(
           "Error: Name can only contain letters and numbers (no spaces or special characters)"
@@ -224,6 +219,11 @@ function Home({ user }: NavbarProps) {
           alert("display name already exists");
           setName("");
 
+          return;
+        }
+
+        if (name.length < 3) {
+          alert("name must be 3 characters or more");
           return;
         }
 
