@@ -36,7 +36,7 @@ function Navbar({ user }: NavbarProps) {
             <div className="crown">
               <FontAwesomeIcon icon={faCrown} />
             </div>
-            <div className="lddis">leaderboard</div>
+            <div className="lddis">Leaderboard</div>
           </Link>
         </div>
       </div>
