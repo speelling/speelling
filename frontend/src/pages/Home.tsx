@@ -322,7 +322,7 @@ function Home({ user }: NavbarProps) {
           <h1>{`Round  ${round}/10`}</h1>
 
           <div>
-            <div>00:{time}</div>
+            <div>00:{time.toString().padStart(2, "0")}</div>
             {score}
           </div>
         </div>
