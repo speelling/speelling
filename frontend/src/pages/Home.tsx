@@ -127,9 +127,8 @@ function Home({ user }: NavbarProps) {
   const playSound = async () => {
     try {
       const result = await getmp3();
-      const audio = new Audio(result);
-      audio.load();
-      audio.play();
+      const mp3 = new Audio(result);
+      mp3.play();
       handleStart();
 
       if (inputRef.current !== null) {
