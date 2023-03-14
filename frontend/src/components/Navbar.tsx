@@ -31,13 +31,12 @@ function Navbar({ user }: NavbarProps) {
           </Link>
         </div>
 
-        <div className="crown">
-          <FontAwesomeIcon icon={faCrown} />
-        </div>
-
         <div className="leaderboards">
           <Link to={"/leaderboard"}>
-            <h4>leaderboard</h4>
+            <div className="crown">
+              <FontAwesomeIcon icon={faCrown} />
+            </div>
+            <div className="lddis">leaderboard</div>
           </Link>
         </div>
       </div>
@@ -45,23 +44,26 @@ function Navbar({ user }: NavbarProps) {
       <div className="navbar__right">
         {user ? (
           <div className="user">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div className="usericon">
-                <FontAwesomeIcon icon={faUser} /> {user?.email}
-              </div>
-              <button onClick={handleSignOut}>
+            <div className="usericon">
+              <FontAwesomeIcon icon={faUser} />
+              <div className="emdis"> {user?.email}</div>
+            </div>
+            <div className="logout">
+              <button className="signout" onClick={handleSignOut}>
                 <FontAwesomeIcon icon={faSignOutAlt} />
               </button>
             </div>
           </div>
         ) : (
           <>
-            <Link to={"/register"} className="register-login">
-              <div className="usericon">
-                <FontAwesomeIcon icon={faUser} />
-                Register/Login
-              </div>
-            </Link>
+            <div className="user">
+              <Link to={"/register"} className="register-login">
+                <div className="usericon">
+                  <FontAwesomeIcon icon={faUser} />
+                  <div className="usdis"> Register/Login</div>
+                </div>
+              </Link>
+            </div>
           </>
         )}
       </div>
