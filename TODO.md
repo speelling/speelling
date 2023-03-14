@@ -1,7 +1,6 @@
 - FRONTEND
   [x] doesnt go automatically into next round, user must submit
   [x] show correct wrong
-  [ ] design ofc (almost finished)
   [x] switch to realtime database with listener and usememo
   [x] figure out the unique username thing
   [ ] more difficult words / finish words in mit list
@@ -13,4 +12,6 @@
   [ ] dont allow submit untill sound is played
   [x] verify password
   [ ] maybe add register screen when not logged in to save score
+  [ ] mobile view for navbar
+  [ ] home screen positioning
   pretty much done then
