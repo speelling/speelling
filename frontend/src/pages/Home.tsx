@@ -128,11 +128,9 @@ function Home({ user }: NavbarProps) {
     try {
       const result = await getmp3();
       const mp3 = new Audio(result);
-      mp3.addEventListener("canplay", () => {
-        mp3.play();
-      });
-      alert(result);
       handleStart();
+
+      mp3.play();
 
       if (inputRef.current !== null) {
         inputRef.current.removeAttribute("readOnly");
