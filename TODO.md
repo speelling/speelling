@@ -12,4 +12,5 @@
   [ ] show actual spelling, underline each letter green or red
   [ ] dont allow submit untill sound is played
   [x] verify password
+  [ ] maybe add register screen when not logged in to save score
   pretty much done then
