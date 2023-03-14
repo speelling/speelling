@@ -39,14 +39,15 @@ a {
 
 
 .leaderboards {
-  margin: 0 15px;
+  margin: 0 13px;
   display: flex;
   align-items: center;
+  font-family:Consolas, monaco, monospace;
 }
 
 .leaderboards a {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   text-decoration: none;
   color: white;
 }
@@ -54,8 +55,9 @@ a {
 .leaderboards .crown {
   margin-right: 5px;
   color: #28f;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
+
 
 
 .user {
@@ -85,21 +87,36 @@ h1.title {
 
 .emdis{
   margin: 0 0 0 5px;
+  font-family:Consolas, monaco, monospace;
+  font-size: 16px;
+  align-items: center;
+
+
+  
+
 }
 
 .usdis{
   margin: 0 0 0 5px;
+  font-family:Consolas, monaco, monospace;
+  font-size: 16px;
+  align-items: center;
+
+
+
   
 }
 
 @media (max-width: 767px) {
+ 
+
+
   .usdis{
     display: none;
   }
   .crown {
-    margin: 0 0 0 20px;
+    margin: 0 0 0 10px;
     color:#28f;
-    font-size: 3em;
   }
 
   .lddis {

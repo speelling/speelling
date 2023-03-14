@@ -12,6 +12,6 @@
   [ ] dont allow submit untill sound is played
   [x] verify password
   [ ] maybe add register screen when not logged in to save score
-  [ ] mobile view for navbar
+  [x] mobile view for navbar
   [ ] home screen positioning
   pretty much done then
