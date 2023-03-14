@@ -27,7 +27,7 @@ function Navbar({ user }: NavbarProps) {
       <div className="navbar__left">
         <div className="Title">
           <Link to={"/"}>
-            <h1>Speelling</h1>
+            <h1 className="title">Speelling</h1>
           </Link>
         </div>
 

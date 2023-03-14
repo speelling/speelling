@@ -69,6 +69,12 @@ a {
   font-size: 1.2em;
 }
 
+h1.title {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 7px #fff;
+}
+
 
 
 
@@ -97,7 +103,7 @@ a {
   }
 
   .navbar{
-    justify-content: flex-start
+    justify-content: center
   }
 
 
@@ -115,6 +121,11 @@ a {
     cursor: pointer;
     outline: inherit;
     font-size: 1.3em;
+  }
+
+
+  h1.title{
+    font-size: 30%;
   }
 }
 
