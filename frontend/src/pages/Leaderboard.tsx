@@ -44,7 +44,7 @@ export default function Leaderboard({ user }: NavbarProps) {
           users.push({
             name: user.displayName,
             score: user.score,
-            time: new Date(user.time).toLocaleString(),
+            time: new Date(user.time).toLocaleDateString(),
           });
         });
         console.log(users);

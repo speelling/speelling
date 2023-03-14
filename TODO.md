@@ -14,4 +14,5 @@
   [ ] maybe add register screen when not logged in to save score
   [x] mobile view for navbar
   [ ] home screen positioning
-  pretty much done then
+  [ ] add loading to add name bit on the 10/10 round thing thing
+  [ ] fix audio for mobile
