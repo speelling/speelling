@@ -67,7 +67,7 @@ export default function Leaderboard({ user }: NavbarProps) {
           <thead>
             <tr>
               <th>NAME</th>
-              <th>HIGHSCORE</th>
+              <th>HS</th>
               <th>DATE</th>
             </tr>
           </thead>
