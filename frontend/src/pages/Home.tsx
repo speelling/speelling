@@ -129,6 +129,7 @@ function Home({ user }: NavbarProps) {
       const result = await getmp3();
       const mp3 = new Audio(result);
       mp3.play();
+      alert(result);
       handleStart();
 
       if (inputRef.current !== null) {
