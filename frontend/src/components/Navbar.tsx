@@ -46,6 +46,7 @@ function Navbar({ user }: NavbarProps) {
           <div className="user">
             <div className="usericon">
               <FontAwesomeIcon icon={faUser} />
+
               <div className="emdis"> {user?.email}</div>
             </div>
             <div className="logout">

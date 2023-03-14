@@ -24,6 +24,14 @@ a {
   color: #ffff;
 }
 
+.usericon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 5px;
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+}
+
 .Title {
   font-size: 100px;
   font-family: Consolas, monaco, monospace;
@@ -75,9 +83,14 @@ h1.title {
   text-shadow: 0 0 7px #fff;
 }
 
+.emdis{
+  margin: 0 0 0 5px;
+}
 
-
-
+.usdis{
+  margin: 0 0 0 5px;
+  
+}
 
 @media (max-width: 767px) {
   .usdis{
