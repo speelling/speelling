@@ -23,6 +23,7 @@ import {
   faVolumeUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Howl } from "howler";
 
 interface NavbarProps {
   user: User | null;
@@ -127,10 +128,12 @@ function Home({ user }: NavbarProps) {
   const playSound = async () => {
     try {
       const result = await getmp3();
-      const mp3 = new Audio(result);
+      const sound = new Howl({
+        src: [result],
+      });
       handleStart();
 
-      mp3.play();
+      sound.play();
 
       if (inputRef.current !== null) {
         inputRef.current.removeAttribute("readOnly");
@@ -225,6 +228,11 @@ function Home({ user }: NavbarProps) {
 
         if (name.length < 3) {
           alert("name must be 3 characters or more");
+          return;
+        }
+
+        if (name.length > 10) {
+          alert("name must be 10 characters or less");
           return;
         }
 

@@ -19,6 +19,7 @@
     "font-awesome": "^4.7.0",
     "framer-motion": "^10.2.3",
     "fs": "^0.0.1-security",
+    "howler": "^2.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@types/bad-words": "^3.0.1",
+    "@types/howler": "^2.2.7",
     "@types/node": "^18.14.6",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
