@@ -1,29 +1,14 @@
+import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import BadWords from "bad-words";
 import { User } from "firebase/auth";
-import {
-  equalTo,
-  get,
-  orderByChild,
-  query,
-  ref,
-  serverTimestamp,
-  set,
-  update,
-} from "firebase/database";
+import { get, ref, serverTimestamp, set, update } from "firebase/database";
+import { Howl } from "howler";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { myList } from "../assets/words";
 import "../css/Home.css";
-import Register from "./Register";
-import BadWords from "bad-words";
-import {
-  faCrown,
-  faFileAudio,
-  faSpaceShuttle,
-  faVolumeUp,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Howl } from "howler";
 
 interface NavbarProps {
   user: User | null;
@@ -48,6 +33,7 @@ function Home({ user }: NavbarProps) {
   const [showSoundButton, setShowSoundButton] = useState(true);
   const [timeIsUp, setTimeIsUp] = useState(false);
   const navigate = useNavigate();
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   //TIMER
 
@@ -130,10 +116,17 @@ function Home({ user }: NavbarProps) {
       const result = await getmp3();
       const sound = new Howl({
         src: [result],
+        onend: () => {
+          setButtonDisabled(false);
+        },
       });
-      handleStart();
 
-      sound.play();
+      if (!buttonDisabled) {
+        setButtonDisabled(true);
+        sound.play();
+      }
+
+      handleStart();
 
       if (inputRef.current !== null) {
         inputRef.current.removeAttribute("readOnly");
@@ -143,6 +136,7 @@ function Home({ user }: NavbarProps) {
       console.error(error);
     }
   };
+
   // SHOW ANSWERS PAGE FOR EACH SPELL / CORRECT/INCORRECT
 
   function newTurn(userinput: string) {
@@ -338,7 +332,7 @@ function Home({ user }: NavbarProps) {
 
         <div>
           {showSoundButton && (
-            <button onClick={playSound}>
+            <button onClick={playSound} disabled={buttonDisabled}>
               <FontAwesomeIcon icon={faVolumeUp} />
             </button>
           )}

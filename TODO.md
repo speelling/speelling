@@ -3,17 +3,17 @@
   [x] show correct wrong
   [x] switch to realtime database with listener and usememo
   [x] figure out the unique username thing
-  [ ] more difficult words / finish words in mit list
   [x] put get user in the app.tsx and pass as props
-  [ ] stop repeating words
   [x] watch ur profanity
   [x] log in to save score text etc
+  [x] verify password
+  [x] mobile view for navbar
+  [x] fix audio for mobile
+  [ ] more difficult words / finish words in mit list
+  [ ] stop repeating words
   [ ] show actual spelling, underline each letter green or red
   [ ] dont allow submit untill sound is played
-  [x] verify password
   [ ] maybe add register screen when not logged in to save score
-  [x] mobile view for navbar
   [ ] home screen positioning
   [ ] add loading to add name bit on the 10/10 round thing thing
-  [x] fix audio for mobile
   [ ] autocomplete etc off on ios
