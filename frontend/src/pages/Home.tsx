@@ -62,8 +62,16 @@ function Home({ user }: NavbarProps) {
   //GET RANDOM WORDS
 
   const memoizedGetRandomWord = useMemo(() => {
+    const usedIndices = new Set<number>();
+
     return (words: string[]) => {
-      const randomIndex = Math.floor(Math.random() * words.length);
+      let randomIndex = Math.floor(Math.random() * words.length);
+
+      while (usedIndices.has(randomIndex)) {
+        randomIndex = Math.floor(Math.random() * words.length);
+      }
+
+      usedIndices.add(randomIndex);
       setSpell(words[randomIndex]);
     };
   }, []);
@@ -354,8 +362,8 @@ function Home({ user }: NavbarProps) {
               maxLength={spell.length}
               autoComplete="off"
               spellCheck="false"
-              autoCorrect="off"
               autoCapitalize="off"
+              autoCorrect={"false"}
             />
 
             <div>

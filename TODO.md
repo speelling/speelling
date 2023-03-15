@@ -10,7 +10,7 @@
   [x] mobile view for navbar
   [x] fix audio for mobile
   [ ] more difficult words / finish words in mit list
-  [ ] stop repeating words
+  [x] stop repeating words
   [ ] show actual spelling, underline each letter green or red
   [ ] dont allow submit untill sound is played
   [ ] maybe add register screen when not logged in to save score

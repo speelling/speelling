@@ -87,10 +87,10 @@ export default function Leaderboard({ user }: NavbarProps) {
 
   return (
     <div>
-      <div className="tron-container">
+      <div>
         {user && <UserTable usersData={memoizedUsersData} />}
         {!user && (
-          <div className="page-container">
+          <div>
             <div className="centered-text">
               <Link className="leadlink" to={"/register"}>
                 SIGN IN TO VIEW LEADERBOARDS

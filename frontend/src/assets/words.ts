@@ -117,4 +117,9 @@ export const myList: string[] = [
   "mentioned",
   "mission",
   "moderate",
+  "moisture",
+  "mortgage",
+  "mysterious",
+  "necessary",
+  "neutral",
 ];
