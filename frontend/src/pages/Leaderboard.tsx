@@ -47,7 +47,6 @@ export default function Leaderboard({ user }: NavbarProps) {
             time: new Date(user.time).toLocaleDateString(),
           });
         });
-        console.log(users);
 
         setUsersData(users.reverse());
       });
