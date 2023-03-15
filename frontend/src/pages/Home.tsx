@@ -359,6 +359,9 @@ function Home({ user }: NavbarProps) {
               readOnly={true}
               maxLength={spell.length}
               autoComplete="off"
+              spellCheck="false"
+              autoCorrect="off"
+              autoCapitalize="off"
             />
 
             <div>

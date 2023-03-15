@@ -15,4 +15,5 @@
   [x] mobile view for navbar
   [ ] home screen positioning
   [ ] add loading to add name bit on the 10/10 round thing thing
-  [ ] fix audio for mobile
+  [x] fix audio for mobile
+  [ ] autocomplete etc off on ios
