@@ -174,6 +174,7 @@ function Home({ user }: NavbarProps) {
     setTimeIsUp(false);
 
     console.log(correct);
+    console.log("newturn");
   }
 
   // GO TO ANSWERS PAGE IF TIME RUN OUT
