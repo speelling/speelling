@@ -1,16 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
-import {
-  ref,
-  onValue,
-  query,
-  orderByChild,
-  limitToLast,
-} from "firebase/database";
-import { db } from "../../firebase";
-import Navbar from "../components/Navbar";
-import "../css/Leaderboard.css";
 import { User } from "firebase/auth";
+import {
+  limitToLast,
+  onValue,
+  orderByChild,
+  query,
+  ref,
+} from "firebase/database";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../../firebase";
+import "../css/Leaderboard.css";
 
 type Userinfo = {
   name: string;
@@ -49,9 +48,9 @@ export default function Leaderboard({ user }: NavbarProps) {
         });
 
         setUsersData(users.reverse());
+        console.log(users);
       });
       return () => {
-        // Unsubscribe from the listener when the component unmounts
         unsubscribe();
       };
     }
@@ -65,6 +64,7 @@ export default function Leaderboard({ user }: NavbarProps) {
         <table>
           <thead>
             <tr>
+              <th>#</th>
               <th>NAME</th>
               <th>HS</th>
               <th>DATE</th>
@@ -73,6 +73,7 @@ export default function Leaderboard({ user }: NavbarProps) {
           <tbody>
             {usersData.map((user, index) => (
               <tr key={index}>
+                <td>{index + 1}</td>
                 <td>{user.name}</td>
                 <td>{user.score}</td>
                 <td>{user.time}</td>

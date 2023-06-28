@@ -89,7 +89,7 @@ function Home({ user }: NavbarProps) {
     if (isCorrect) {
       console.log("correct");
       setCorrect(correct + 1);
-      setScore(score + spell.length * 1 * time);
+      setScore(score + spell.length * 5 * time);
       setAnswerStatus("correct");
     } else if (isCorrect == false) {
       console.log("wrong");
@@ -293,7 +293,9 @@ function Home({ user }: NavbarProps) {
               <Link to={"register"}>
                 Register here to save your score in the leaderboard!
               </Link>
-              <button onClick={handleRestart}>play again</button>
+              <button className="buttonhome" onClick={handleRestart}>
+                play again
+              </button>
             </div>
           )}
 
@@ -301,7 +303,9 @@ function Home({ user }: NavbarProps) {
             <div>
               <div>{`you got ${correct}/10 correct`}</div>
               <div>{`you scored ${score} points`}</div>
-              <button onClick={setOrUpdate}>save score</button>
+              <button className="buttonhome" onClick={setOrUpdate}>
+                save score
+              </button>
               <label>
                 Enter your name:
                 <input
@@ -318,7 +322,9 @@ function Home({ user }: NavbarProps) {
               <div>{`you got ${correct}/10 correct`}</div>
               <div>{`you scored ${score} points`}</div>
 
-              <button onClick={setOrUpdate}>save score</button>
+              <button className="buttonhome" onClick={setOrUpdate}>
+                save score
+              </button>
             </div>
           )}
         </div>
@@ -341,7 +347,11 @@ function Home({ user }: NavbarProps) {
 
         <div>
           {showSoundButton && (
-            <button onClick={playSound} disabled={buttonDisabled}>
+            <button
+              className="buttonhome"
+              onClick={playSound}
+              disabled={buttonDisabled}
+            >
               <FontAwesomeIcon icon={faVolumeUp} />
             </button>
           )}
@@ -368,7 +378,9 @@ function Home({ user }: NavbarProps) {
             />
 
             <div>
-              <button type="submit">{buttonText}</button>
+              <button className="buttonhome" type="submit">
+                {buttonText}
+              </button>
             </div>
           </form>
         ) : (
@@ -384,7 +396,9 @@ function Home({ user }: NavbarProps) {
             />
             <div>{spell}</div>
 
-            <button onClick={nextTurn}>{buttonText}</button>
+            <button className="buttonhome" onClick={nextTurn}>
+              {buttonText}
+            </button>
           </div>
         )}
         <div className={answerStatus === "correct" ? "correct" : "incorrect"}>

@@ -33,9 +33,6 @@ function Navbar({ user }: NavbarProps) {
 
         <div className="leaderboards">
           <Link to={"/leaderboard"}>
-            <div className="crown">
-              <FontAwesomeIcon icon={faCrown} />
-            </div>
             <div className="lddis">Leaderboard</div>
           </Link>
         </div>
@@ -45,13 +42,13 @@ function Navbar({ user }: NavbarProps) {
         {user ? (
           <div className="user">
             <div className="usericon">
-              <FontAwesomeIcon icon={faUser} />
-
-              <div className="emdis"> {user?.email}</div>
+              <Link to={"/Account"}>
+                <div className="emdis"> My Account</div>
+              </Link>
             </div>
             <div className="logout">
-              <button className="signout" onClick={handleSignOut}>
-                <FontAwesomeIcon icon={faSignOutAlt} />
+              <button className="navbut" onClick={handleSignOut}>
+                Logout
               </button>
             </div>
           </div>
@@ -60,7 +57,6 @@ function Navbar({ user }: NavbarProps) {
             <div className="user">
               <Link to={"/register"} className="register-login">
                 <div className="usericon">
-                  <FontAwesomeIcon icon={faUser} />
                   <div className="usdis"> Register/Login</div>
                 </div>
               </Link>

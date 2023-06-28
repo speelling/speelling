@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { auth } from "../firebase";
+import Footer from "./components/Footer";
 
 function App() {
   const location = useLocation();
@@ -50,6 +51,7 @@ function App() {
           </Routes>
         </motion.div>
       </AnimatePresence>
+      <Footer />
     </div>
   );
 }
