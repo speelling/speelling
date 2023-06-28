@@ -1,7 +1,7 @@
 .Home{
     text-align: center;
     font-size: 25px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 
@@ -17,6 +17,19 @@ input {
 textarea:focus, input:focus{
     outline: none;
 }
+
+
+.buttonhome {
+    background-color: #000000;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px ;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+  }
 
 
 
