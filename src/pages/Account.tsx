@@ -27,7 +27,7 @@ function Account({ user }: NavbarProps) {
     getfile();
   }, []); // Empty dependency array ensures the effect runs only once when mounted
 
-  return <div>{user?.email}</div>;
+  return <div>HELLLO{user?.email}</div>;
 }
 
 export default Account;
