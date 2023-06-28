@@ -21,3 +21,4 @@
 * [ ] rules for firebase
 * [ ] mobile friendly
 * [ ] if already logged in navigate away from regsiter page
+* [ ] enter to submit and also go next
