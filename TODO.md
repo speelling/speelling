@@ -20,3 +20,4 @@
 * [ ] autocomplete etc off on ios
 * [ ] rules for firebase
 * [ ] mobile friendly
+* [ ] if already logged in navigate away from regsiter page

@@ -23,7 +23,6 @@ export const myList: string[] = [
   "artificial",
   "bargain",
   "browse",
-  "courteous",
   "ceiling",
   "chancellor",
   "communication",

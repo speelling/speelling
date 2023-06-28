@@ -336,13 +336,11 @@ function Home({ user }: NavbarProps) {
   return (
     <div>
       <div className="Home">
-        <div style={{ display: "" }}>
-          <h1>{`Round  ${round}/10`}</h1>
+        <div className="homt">{`Round  ${round}/10`}</div>
 
-          <div>
-            <div>00:{time.toString().padStart(2, "0")}</div>
-            {score}
-          </div>
+        <div>
+          <div>00:{time.toString().padStart(2, "0")}</div>
+          {score}
         </div>
 
         <div>
