@@ -5,7 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut, User } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import "../css/Navbar.css";
 
@@ -14,10 +14,13 @@ interface NavbarProps {
 }
 
 function Navbar({ user }: NavbarProps) {
+  const navigate = useNavigate();
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
         console.log("signed out");
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
