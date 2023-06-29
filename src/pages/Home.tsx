@@ -294,7 +294,7 @@ function Home({ user }: NavbarProps) {
                 Register here to save your score in the leaderboard!
               </Link>
               <div>
-                <button className="buttonhome" onClick={handleRestart}>
+                <button className="" onClick={handleRestart}>
                   play again
                 </button>
               </div>
@@ -305,7 +305,7 @@ function Home({ user }: NavbarProps) {
             <div>
               <div>{`you got ${correct}/10 correct`}</div>
               <div>{`you scored ${score} points`}</div>
-              <button className="buttonhome" onClick={setOrUpdate}>
+              <button className="" onClick={setOrUpdate}>
                 save score
               </button>
               <label>
@@ -324,7 +324,7 @@ function Home({ user }: NavbarProps) {
               <div>{`you got ${correct}/10 correct`}</div>
               <div>{`you scored ${score} points`}</div>
 
-              <button className="buttonhome" onClick={setOrUpdate}>
+              <button className="" onClick={setOrUpdate}>
                 save score
               </button>
             </div>
@@ -345,13 +345,9 @@ function Home({ user }: NavbarProps) {
           {score}
         </div>
 
-        <div>
+        <div className="playsound">
           {showSoundButton && (
-            <button
-              className="buttonhome"
-              onClick={playSound}
-              disabled={buttonDisabled}
-            >
+            <button className="" onClick={playSound} disabled={buttonDisabled}>
               <FontAwesomeIcon icon={faVolumeUp} />
             </button>
           )}
@@ -378,7 +374,7 @@ function Home({ user }: NavbarProps) {
             />
 
             <div className="subbut">
-              <button className="buttonhome" type="submit">
+              <button className="" type="submit">
                 {buttonText}
               </button>
             </div>
@@ -396,7 +392,7 @@ function Home({ user }: NavbarProps) {
             />
             <div>{spell}</div>
 
-            <button className="buttonhome" onClick={nextTurn}>
+            <button className="" onClick={nextTurn}>
               {buttonText}
             </button>
           </div>
