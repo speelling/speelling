@@ -293,9 +293,11 @@ function Home({ user }: NavbarProps) {
               <Link to={"register"}>
                 Register here to save your score in the leaderboard!
               </Link>
-              <button className="buttonhome" onClick={handleRestart}>
-                play again
-              </button>
+              <div>
+                <button className="buttonhome" onClick={handleRestart}>
+                  play again
+                </button>
+              </div>
             </div>
           )}
 
