@@ -43,7 +43,7 @@ function Navbar({ user }: NavbarProps) {
           <div className="user">
             <div className="usericon">
               <Link to={"/Account"}>
-                <div className="emdis"> My Account</div>
+                <div className="emdis">Account</div>
               </Link>
             </div>
             <div className="logout">
