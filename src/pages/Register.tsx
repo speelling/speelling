@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  User,
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useState } from "react";
@@ -10,13 +11,22 @@ import Navbar from "../components/Navbar";
 import "../css/Register.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Register() {
+interface NavbarProps {
+  user: User | null;
+}
+
+export default function Register({ user }: NavbarProps) {
+  const navigate = useNavigate();
+
   // REGISTER USER
+
+  if(user){
+    navigate("/")
+  }
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const navigate = useNavigate();
 
   const Register = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

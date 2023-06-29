@@ -46,8 +46,8 @@ function App() {
               path="/leaderboard"
               element={<Leaderboard user={authUser} />}
             />
-            <Route path="/register" element={<Register />} />
-            <Route path="/account" element={<Account  user={authUser} /> } />
+            <Route path="/register" element={<Register user={authUser} />} />
+            <Route path="/account" element={<Account user={authUser} />} />
           </Routes>
         </motion.div>
       </AnimatePresence>
