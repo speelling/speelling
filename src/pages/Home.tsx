@@ -305,9 +305,7 @@ function Home({ user }: NavbarProps) {
             <div>
               <div>{`you got ${correct}/10 correct`}</div>
               <div>{`you scored ${score} points`}</div>
-              <button className="" onClick={setOrUpdate}>
-                save score
-              </button>
+
               <label>
                 Enter your name:
                 <input
@@ -316,6 +314,11 @@ function Home({ user }: NavbarProps) {
                   onChange={(e) => setName(e.target.value)}
                 />
               </label>
+              <div>
+                <button className="" onClick={setOrUpdate}>
+                  save score
+                </button>
+              </div>
             </div>
           )}
 
