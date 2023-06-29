@@ -8,10 +8,11 @@
 * [x] watch ur profanity
 * [x] log in to save score text etc
 * [x] verify password
-* [ ] mobile view for navbar
 * [x] fix audio for mobile
-* [ ] more difficult words / finish words in mit list
 * [x] stop repeating words
+* [x] if already logged in navigate away from regsiter page
+* [x] mobile view for navbar
+* [ ] more difficult words / finish words in mit list
 * [ ] show actual spelling, underline each letter green or red
 * [ ] dont allow submit untill sound is played
 * [ ] maybe add register screen when not logged in to save score
@@ -20,7 +21,6 @@
 * [ ] autocomplete etc off on ios
 * [ ] rules for firebase
 * [ ] mobile friendly
-* [x] if already logged in navigate away from regsiter page
 * [ ] enter to submit and also go next
 * [ ] insta save score not have to press
 * [ ] add reset button
