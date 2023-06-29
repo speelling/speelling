@@ -287,7 +287,7 @@ function Home({ user }: NavbarProps) {
       <div>
         <div className="Home">
           {!user && (
-            <div>
+            <div className="subbut">
               <div>{`you got ${correct}/10 correct`}</div>
               <div>{`you scored ${score} points`}</div>
               <Link to={"register"}>
@@ -318,7 +318,7 @@ function Home({ user }: NavbarProps) {
           )}
 
           {user && Data && (
-            <div>
+            <div className="subbut">
               <div>{`you got ${correct}/10 correct`}</div>
               <div>{`you scored ${score} points`}</div>
 
@@ -375,7 +375,7 @@ function Home({ user }: NavbarProps) {
               autoCorrect={"false"}
             />
 
-            <div>
+            <div className="subbut">
               <button className="buttonhome" type="submit">
                 {buttonText}
               </button>

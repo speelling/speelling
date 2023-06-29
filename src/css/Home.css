@@ -22,7 +22,6 @@ textarea:focus, input:focus{
 .buttonhome {
     background-color: #000000;
     border: none;
-    border-radius: 20px;
     color: #ffffff;
     font-size: 16px;
     padding: 10px 20px ;
@@ -31,6 +30,9 @@ textarea:focus, input:focus{
     transition: all 0.3s ease-in-out;
   }
 
+  .subbut {
+    padding-top: 10px;
+  }
 
 
 .correct {
