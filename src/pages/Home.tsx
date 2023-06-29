@@ -123,6 +123,7 @@ function Home({ user }: NavbarProps) {
     try {
       const result = await getmp3();
       const sound = new Howl({
+        volume: 0.6,
         src: [result],
         onend: () => {
           setButtonDisabled(false);
