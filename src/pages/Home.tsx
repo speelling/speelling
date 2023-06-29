@@ -291,9 +291,11 @@ function Home({ user }: NavbarProps) {
             <div className="subbut">
               <div>{`you got ${correct}/10 correct`}</div>
               <div>{`you scored ${score} points`}</div>
-              <Link to={"register"}>
-                Register here to save your score in the leaderboard!
-              </Link>
+              <div className="playagain">
+                <Link to={"register"}>
+                  Register here to save your score in the leaderboard!
+                </Link>
+              </div>
               <div>
                 <button className="" onClick={handleRestart}>
                   play again
