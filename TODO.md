@@ -20,7 +20,7 @@
 * [ ] autocomplete etc off on ios
 * [ ] rules for firebase
 * [ ] mobile friendly
-* [ ] if already logged in navigate away from regsiter page
+* [x] if already logged in navigate away from regsiter page
 * [ ] enter to submit and also go next
 * [ ] insta save score not have to press
 * [ ] add reset button
