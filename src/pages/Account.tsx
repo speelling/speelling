@@ -29,7 +29,12 @@ function Account({ user }: NavbarProps) {
     getfile();
   }, []); // Empty dependency array ensures the effect runs only once when mounted
 
-  return <div className="hs">Your High Score is {Score}</div>;
+  return (
+    <>
+      <div className="ht">Well done.........</div>
+      <div className="hs">Your High Score is {Score}</div>;
+    </>
+  );
 }
 
 export default Account;

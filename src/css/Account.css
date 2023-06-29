@@ -1,6 +1,14 @@
 .hs{
     font-family: 'Courier New', monospace;
     font-size: 19px;
+    padding-top: 1em;
+    font-weight: 550;
+    text-align: center;
+}
+
+.ht{
+    font-family: 'Courier New', monospace;
+    font-size: 19px;
     padding-top: 5em;
     font-weight: 550;
     text-align: center;
