@@ -43,7 +43,6 @@ export default function Leaderboard({ user }: NavbarProps) {
       });
 
       setUsersData(users.reverse());
-      console.log(users);
     });
     return () => {
       unsubscribe();

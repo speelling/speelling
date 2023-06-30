@@ -87,12 +87,10 @@ function Home({ user }: NavbarProps) {
   const checkAnswer = (userinput: string): boolean => {
     const isCorrect = userinput.toLowerCase() === spell.toLowerCase();
     if (isCorrect) {
-      console.log("correct");
       setCorrect(correct + 1);
       setScore(score + spell.length * 5 * time);
       setAnswerStatus("correct");
     } else if (isCorrect == false) {
-      console.log("wrong");
       setAnswerStatus("incorrect");
     }
     return isCorrect;
@@ -173,9 +171,6 @@ function Home({ user }: NavbarProps) {
     setAnswerStatus("");
     setShowSoundButton(true);
     setTimeIsUp(false);
-
-    console.log(correct);
-    console.log("newturn");
   }
 
   // GO TO ANSWERS PAGE IF TIME RUN OUT
@@ -187,7 +182,6 @@ function Home({ user }: NavbarProps) {
 
   const getfile = async () => {
     if (!user) {
-      console.log("well done!");
     } else {
       const userRef = ref(db, `users/${user.uid}`);
       const userSnap = await get(userRef);
