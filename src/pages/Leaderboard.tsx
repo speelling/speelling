@@ -29,31 +29,25 @@ export default function Leaderboard({ user }: NavbarProps) {
   const [usersData, setUsersData] = useState<Userinfo[]>([]);
 
   useEffect(() => {
-    if (user) {
-      const usersRef = ref(db, "users");
-      const usersQuery = query(
-        usersRef,
-        orderByChild("score"),
-        limitToLast(10)
-      );
-      const unsubscribe = onValue(usersQuery, (snapshot) => {
-        const users: Userinfo[] = [];
-        snapshot.forEach((childSnapshot) => {
-          const user = childSnapshot.val();
-          users.push({
-            name: user.displayName,
-            score: user.score,
-            time: new Date(user.time).toLocaleDateString(),
-          });
+    const usersRef = ref(db, "users");
+    const usersQuery = query(usersRef, orderByChild("score"), limitToLast(10));
+    const unsubscribe = onValue(usersQuery, (snapshot) => {
+      const users: Userinfo[] = [];
+      snapshot.forEach((childSnapshot) => {
+        const user = childSnapshot.val();
+        users.push({
+          name: user.displayName,
+          score: user.score,
+          time: new Date(user.time).toLocaleDateString(),
         });
-
-        setUsersData(users.reverse());
-        console.log(users);
       });
-      return () => {
-        unsubscribe();
-      };
-    }
+
+      setUsersData(users.reverse());
+      console.log(users);
+    });
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const memoizedUsersData = useMemo(() => usersData, [usersData]);
@@ -87,18 +81,7 @@ export default function Leaderboard({ user }: NavbarProps) {
 
   return (
     <div>
-      <div>
-        {user && <UserTable usersData={memoizedUsersData} />}
-        {!user && (
-          <div>
-            <div className="centered-text">
-              <Link className="leadlink" to={"/register"}>
-                SIGN IN TO VIEW LEADERBOARDS
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
+      <div>{<UserTable usersData={memoizedUsersData} />}</div>
     </div>
   );
 }
