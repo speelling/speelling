@@ -190,6 +190,8 @@ function Home({ user }: NavbarProps) {
     }
   };
 
+  //// DATABASE WRITES SECTION
+
   const setOrUpdate = async () => {
     if (!user) {
       console.log("error");

@@ -1,15 +1,12 @@
 import {
-  getAuth,
+  User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile,
-  User,
 } from "firebase/auth";
-import { auth } from "../../firebase";
 import { useState } from "react";
-import Navbar from "../components/Navbar";
-import "../css/Register.css";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
+import "../css/Register.css";
 
 interface NavbarProps {
   user: User | null;
@@ -20,8 +17,8 @@ export default function Register({ user }: NavbarProps) {
 
   // REGISTER USER
 
-  if(user){
-    navigate("/")
+  if (user) {
+    navigate("/");
   }
 
   const [email, setEmail] = useState<string>("");

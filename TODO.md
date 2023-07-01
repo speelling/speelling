@@ -12,12 +12,12 @@
 * [x] stop repeating words
 * [x] if already logged in navigate away from regsiter page
 * [x] mobile view for navbar
+* [*] remove console logs
 * [ ] more difficult words / finish words in mit list
 * [ ] dont allow submit untill sound is played
-* [ ] add loading to add name bit on the 10/10 round thing thing
+* [ ] add loading spinner to add name bit on the 10/10 round thing thing
 * [ ] rules for firebase
 * [ ] mobile friendly
 * [ ] enter to submit and also go next
-* [ ] insta save score not have to press
+* [ ] insta save score not have to press, except first play
 * [ ] add reset button
-* [ ] remove console logs

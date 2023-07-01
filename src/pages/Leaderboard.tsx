@@ -7,7 +7,6 @@ import {
   ref,
 } from "firebase/database";
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
 import { db } from "../../firebase";
 import "../css/Leaderboard.css";
 

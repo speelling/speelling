@@ -1,9 +1,8 @@
 import { User } from "firebase/auth";
 import { get, ref } from "firebase/database";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
-import { useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
 import "../css/Account.css";
 
 interface NavbarProps {
