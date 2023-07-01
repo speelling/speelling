@@ -12,6 +12,7 @@ interface NavbarProps {
 function Account({ user }: NavbarProps) {
   const navigate = useNavigate();
   const [Score, setScore] = useState("");
+  const [Name, setName] = useState("");
 
   const getfile = async () => {
     if (!user) {
@@ -22,6 +23,7 @@ function Account({ user }: NavbarProps) {
       const userSnap = await get(userRef);
       const userData = userSnap.val();
       setScore(userData.score);
+      setName(userData.displayName);
     }
   };
   useEffect(() => {
@@ -30,7 +32,7 @@ function Account({ user }: NavbarProps) {
 
   return (
     <>
-      <div className="ht">Well done.........</div>
+      <div className="ht">Well done {Name}</div>
       <div className="hs">Your High Score is {Score}</div>;
     </>
   );

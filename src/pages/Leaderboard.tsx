@@ -27,7 +27,7 @@ interface NavbarProps {
 export default function Leaderboard({ user }: NavbarProps) {
   const [usersData, setUsersData] = useState<Userinfo[]>([]);
 
-  useEffect(() => {
+  const leaderboardget = () => {
     const usersRef = ref(db, "users");
     const usersQuery = query(usersRef, orderByChild("score"), limitToLast(10));
     const unsubscribe = onValue(usersQuery, (snapshot) => {
@@ -46,6 +46,9 @@ export default function Leaderboard({ user }: NavbarProps) {
     return () => {
       unsubscribe();
     };
+  };
+  useEffect(() => {
+    leaderboardget();
   }, []);
 
   const memoizedUsersData = useMemo(() => usersData, [usersData]);
