@@ -195,8 +195,7 @@ function Home({ user }: NavbarProps) {
 
   const setOrUpdate = async () => {
     if (!user) {
-      console.log("error");
-      handleRestart();
+      return;
     } else {
       const filter = new BadWords();
       const isProfane = filter.isProfane(name);
@@ -291,7 +290,7 @@ function Home({ user }: NavbarProps) {
               <div>{`you scored ${score} points`}</div>
               <div className="playagain">
                 <Link to={"register"}>
-                  Register here to save your score in the leaderboard!
+                  Register here to keep track of your score!
                 </Link>
               </div>
               <div>
