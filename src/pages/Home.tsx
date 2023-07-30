@@ -182,6 +182,7 @@ function Home({ user }: NavbarProps) {
 
   const getfile = async () => {
     if (!user) {
+      return;
     } else {
       const userRef = ref(db, `users/${user.uid}`);
       const userSnap = await get(userRef);
@@ -220,8 +221,8 @@ function Home({ user }: NavbarProps) {
       if (!Data?.displayName) {
         const displayNameSnapshot = await get(displayNameRef);
         if (displayNameSnapshot.exists()) {
-          alert("display name already exists");
           setName("");
+          console.log("display name already exists");
 
           return;
         }
@@ -266,6 +267,7 @@ function Home({ user }: NavbarProps) {
   useEffect(() => {
     if (round > 10) {
       getfile();
+      setOrUpdate();
     }
   }, [round]);
 
