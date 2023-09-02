@@ -10,7 +10,12 @@ import { db } from "../../firebase";
 import "../css/Leaderboard.css";
 import { NavbarProps } from "../types/NavbarProps";
 import { UserTableProps } from "../types/UserTable";
-import { Userinfo } from "../types/Userinfo";
+
+export interface Userinfo {
+  name: string;
+  score: number;
+  time: string;
+}
 
 export default function Leaderboard({ user }: NavbarProps) {
   const [usersData, setUsersData] = useState<Userinfo[]>([]);
