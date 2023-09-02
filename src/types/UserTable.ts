@@ -1,6 +1,4 @@
-import { Userinfo } from "./Userinfo"
-
+import { Userinfo } from "./UserInformation";
 export type UserTableProps = {
-    usersData: Userinfo[];
-  };
-  
+  usersData: Userinfo[];
+};
