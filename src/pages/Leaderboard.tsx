@@ -9,8 +9,8 @@ import { useEffect, useMemo, useState } from "react";
 import { db } from "../../firebase";
 import "../css/Leaderboard.css";
 import { NavbarProps } from "../types/NavbarProps";
-import { Userinfo } from "../types/Userinfo";
 import { UserTableProps } from "../types/UserTable";
+import { Userinfo } from "../types/Userinfo";
 
 export default function Leaderboard({ user }: NavbarProps) {
   const [usersData, setUsersData] = useState<Userinfo[]>([]);
