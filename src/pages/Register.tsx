@@ -46,7 +46,6 @@ export default function Register({ user }: NavbarProps) {
 
   const [semail, setsEmail] = useState<string>("");
   const [spassword, setsPassword] = useState<string>("");
-  const [error, setError] = useState<string>("");
 
   const Signin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

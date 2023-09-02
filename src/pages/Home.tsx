@@ -4,13 +4,14 @@ import BadWords from "bad-words";
 import { get, ref, serverTimestamp, set, update } from "firebase/database";
 import { Howl } from "howler";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { myList } from "../assets/words";
+import Complete from "../components/Complete";
 import "../css/Home.css";
 import { FirebaseData } from "../types/FirebaseData";
 import { NavbarProps } from "../types/NavbarProps";
-
+import { getmp3 } from "../utils/mp3";
 
 function Home({ user }: NavbarProps) {
   // USE STATES AND OTHER EFFECTS
@@ -89,29 +90,10 @@ function Home({ user }: NavbarProps) {
   };
 
   /////// MP3 FILE SECTION
-
-  // GET MP3 FILE FROM API
-
-  const getmp3 = async (): Promise<string> => {
-    const response = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${spell}`
-    );
-    const data = await response.json();
-
-    for (const phonetic of data[0].phonetics) {
-      if (phonetic.audio) {
-        return phonetic.audio;
-      }
-    }
-
-    // Throw an error if no audio property is found in any phonetics
-    throw new Error("No audio found in phonetics");
-  };
-
   // PLAY MP3
   const playSound = async () => {
     try {
-      const result = await getmp3();
+      const result = await getmp3(spell);
       const sound = new Howl({
         volume: 0.6,
         src: [result],
@@ -274,58 +256,16 @@ function Home({ user }: NavbarProps) {
 
   if (round > 10) {
     return (
-      <div>
-        <div className="Home">
-          {!user && (
-            <div className="subbut">
-              <div>{`you got ${correct}/10 correct`}</div>
-              <div>{`you scored ${score} points`}</div>
-              <div className="playagain">
-                <Link to={"register"}>
-                  Register here to keep track of your score!
-                </Link>
-              </div>
-              <div>
-                <button className="" onClick={handleRestart}>
-                  play again
-                </button>
-              </div>
-            </div>
-          )}
-
-          {!Data && user && (
-            <div>
-              <div>{`you got ${correct}/10 correct`}</div>
-              <div>{`you scored ${score} points`}</div>
-
-              <label>
-                Enter your name:
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </label>
-              <div>
-                <button className="" onClick={setOrUpdate}>
-                  save score
-                </button>
-              </div>
-            </div>
-          )}
-
-          {user && Data && (
-            <div className="subbut">
-              <div>{`you got ${correct}/10 correct`}</div>
-              <div>{`you scored ${score} points`}</div>
-
-              <button className="" onClick={setOrUpdate}>
-                save score
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
+      <Complete
+        user={user}
+        correct={correct}
+        score={score}
+        Data={Data}
+        name={name}
+        handleRestart={handleRestart}
+        setName={setName}
+        setOrUpdate={setOrUpdate}
+      />
     );
   }
 
