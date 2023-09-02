@@ -1,13 +1,9 @@
-import { User } from "firebase/auth";
 import { get, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import "../css/Account.css";
-
-interface NavbarProps {
-  user: User | null;
-}
+import { NavbarProps } from "../types/NavbarProps";
 
 function Account({ user }: NavbarProps) {
   const navigate = useNavigate();
@@ -28,7 +24,7 @@ function Account({ user }: NavbarProps) {
   };
   useEffect(() => {
     getfile();
-  }, []); // Empty dependency array ensures the effect runs only once when mounted
+  }, []);
 
   return (
     <>

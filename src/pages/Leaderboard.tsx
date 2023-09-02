@@ -1,4 +1,3 @@
-import { User } from "firebase/auth";
 import {
   limitToLast,
   onValue,
@@ -9,20 +8,9 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import { db } from "../../firebase";
 import "../css/Leaderboard.css";
-
-type Userinfo = {
-  name: string;
-  score: number;
-  time: string;
-};
-
-type UserTableProps = {
-  usersData: Userinfo[];
-};
-
-interface NavbarProps {
-  user: User | null;
-}
+import { NavbarProps } from "../types/NavbarProps";
+import { Userinfo } from "../types/Userinfo";
+import { UserTableProps } from "../types/UserTable";
 
 export default function Leaderboard({ user }: NavbarProps) {
   const [usersData, setUsersData] = useState<Userinfo[]>([]);

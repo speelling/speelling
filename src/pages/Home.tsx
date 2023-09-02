@@ -1,7 +1,6 @@
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BadWords from "bad-words";
-import { User } from "firebase/auth";
 import { get, ref, serverTimestamp, set, update } from "firebase/database";
 import { Howl } from "howler";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -9,16 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { myList } from "../assets/words";
 import "../css/Home.css";
+import { FirebaseData } from "../types/FirebaseData";
+import { NavbarProps } from "../types/NavbarProps";
 
-interface NavbarProps {
-  user: User | null;
-}
-
-interface FirebaseData {
-  displayName: string;
-  score: number;
-  time: object;
-}
 
 function Home({ user }: NavbarProps) {
   // USE STATES AND OTHER EFFECTS

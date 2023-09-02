@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 .env
-/TODO.md
+TODO.md
 
 # Editor directories and files
 .vscode/*
