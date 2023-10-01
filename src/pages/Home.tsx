@@ -9,9 +9,6 @@ import "../css/Home.css";
 import { NavbarProps } from "../types/NavbarProps";
 import memoizedGetRandomWord from "../utils/GetWord";
 import { getmp3 } from "../utils/mp3";
-import getfile from "../utils/GetFile";
-import setOrUpdate from "../utils/SetOrUpdate";
-import UpdateScore from "../utils/UpdateScore";
 
 function Home({ user }: NavbarProps) {
   // USE STATES AND OTHER EFFECTS
@@ -27,6 +24,7 @@ function Home({ user }: NavbarProps) {
   const [timeIsUp, setTimeIsUp] = useState(false);
   const navigate = useNavigate();
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [name, setName] = useState<string>("");
 
   //TIMER
 
@@ -72,7 +70,6 @@ function Home({ user }: NavbarProps) {
     return isCorrect;
   };
 
-  /////// MP3 FILE SECTION
   // PLAY MP3
   const playSound = async () => {
     try {
@@ -96,9 +93,7 @@ function Home({ user }: NavbarProps) {
         inputRef.current.removeAttribute("readOnly");
         inputRef.current.focus();
       }
-    } catch (error) {
-      console.error(error);
-    }
+    } catch (error) {}
   };
 
   // SHOW ANSWERS PAGE FOR EACH SPELL / CORRECT/INCORRECT
@@ -130,26 +125,7 @@ function Home({ user }: NavbarProps) {
     setTimeIsUp(false);
   }
 
-  // FIREBASE STUFF
-  const [name, setName] = useState<string>("");
-  const [Data, setData] = useState();
 
-  //// DATABASE WRITES SECTION
-
-  useEffect(() => {
-    if (round > 10) {
-      getfile(user)
-        .then((dataFromGetFile) => {
-          setData(dataFromGetFile);
-          if (Data) {
-            UpdateScore(user, score, Data);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  }, [round]);
 
   // RESTART GAME
 
@@ -167,13 +143,9 @@ function Home({ user }: NavbarProps) {
         user={user}
         correct={correct}
         score={score}
-        Data={Data}
         name={name}
         handleRestart={handleRestart}
         setName={setName}
-        setOrUpdate={() =>
-          setOrUpdate(user, name, setName, score, handleRestart, Data)
-        }
       />
     );
   }

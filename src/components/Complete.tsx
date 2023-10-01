@@ -1,18 +1,33 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { CompleteProps } from "../types/CompletePage";
+import getfile from "../utils/GetFile";
+import UpdateScore from "../utils/UpdateScore";
+import setOrUpdate from "../utils/SetOrUpdate";
 
 const Complete: React.FC<CompleteProps> = ({
   user,
   correct,
   score,
-  Data,
   name,
   handleRestart,
   setName,
-  setOrUpdate,
 }) => {
+  const [Data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getfile(user)
+      .then((dataFromGetFile) => {
+        setData(dataFromGetFile);
+        UpdateScore(user, score, dataFromGetFile);
+        setIsLoading(false);
+      })
+      .catch((error) => {});
+  }, []);
+
   return (
     <div>
       <div className="Home">
@@ -33,7 +48,7 @@ const Complete: React.FC<CompleteProps> = ({
           </div>
         )}
 
-        {!Data && user && (
+        {user && !Data && !isLoading && (
           <div>
             <div>{`you got ${correct}/10 correct`}</div>
             <div>{`you scored ${score} points`}</div>
@@ -47,7 +62,14 @@ const Complete: React.FC<CompleteProps> = ({
               />
             </label>
             <div>
-              <button className="" onClick={setOrUpdate}>
+              <button
+                className=""
+                onClick={() => {
+                  setOrUpdate(user, name, setName, score, handleRestart, Data)
+                    .then(() => {})
+                    .catch((error) => {});
+                }}
+              >
                 save score
               </button>
             </div>
