@@ -1,4 +1,7 @@
-const memoizedGetRandomWord = (setSpell: any, words: any) => {
+const memoizedGetRandomWord = (
+  setSpell: (name: string) => void,
+  words: string[]
+) => {
   const usedIndices = new Set<number>();
 
   let randomIndex = Math.floor(Math.random() * words.length);

@@ -7,9 +7,9 @@ export interface QuestionProps {
   buttonDisabled: boolean;
   value: string;
   spell: string;
-  setValue: any;
+  setValue: (value: string) => void;
   answerStatus: string;
   inputRef: any;
-  buttonText: any;
+  buttonText: string;
   newTurn: (name: string) => void;
 }

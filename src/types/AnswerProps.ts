@@ -7,9 +7,9 @@ export interface AnswerProps {
   buttonDisabled: boolean;
   value: string;
   spell: string;
-  setValue: any;
+  setValue: (value: string) => void;
   answerStatus: string;
   nextTurn: any;
   inputRef: any;
-  buttonText: any;
+  buttonText: string;
 }
