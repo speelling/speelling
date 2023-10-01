@@ -13,6 +13,7 @@ const Complete: React.FC<CompleteProps> = ({
   setName,
   setOrUpdate,
 }) => {
+
   return (
     <div>
       <div className="Home">

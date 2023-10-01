@@ -1,17 +1,18 @@
-import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import BadWords from "bad-words";
 import { get, ref, serverTimestamp, set, update } from "firebase/database";
 import { Howl } from "howler";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { myList } from "../assets/words";
+import Answer from "../components/Answer";
 import Complete from "../components/Complete";
+import Question from "../components/Question";
 import "../css/Home.css";
 import { FirebaseData } from "../types/FirebaseData";
 import { NavbarProps } from "../types/NavbarProps";
+import memoizedGetRandomWord from "../utils/GetWord";
 import { getmp3 } from "../utils/mp3";
+import BadWords from "bad-words";
 
 function Home({ user }: NavbarProps) {
   // USE STATES AND OTHER EFFECTS
@@ -54,26 +55,9 @@ function Home({ user }: NavbarProps) {
 
   //GET RANDOM WORDS
 
-  const memoizedGetRandomWord = useMemo(() => {
-    const usedIndices = new Set<number>();
-
-    return (words: string[]) => {
-      let randomIndex = Math.floor(Math.random() * words.length);
-
-      while (usedIndices.has(randomIndex)) {
-        randomIndex = Math.floor(Math.random() * words.length);
-      }
-
-      usedIndices.add(randomIndex);
-      setSpell(words[randomIndex]);
-    };
-  }, []);
-
-  /// USE EFFECT GET WORD EVERY LOAD
-
   useEffect(() => {
-    memoizedGetRandomWord(myList);
-  }, [memoizedGetRandomWord, myList]);
+    memoizedGetRandomWord(setSpell, myList);
+  }, [memoizedGetRandomWord]);
 
   // CHECK ANSWER IS CORRECT
 
@@ -139,7 +123,7 @@ function Home({ user }: NavbarProps) {
     setValue("");
 
     setTime(10);
-    memoizedGetRandomWord(myList);
+    memoizedGetRandomWord(setSpell, myList);
     setRound(round + 1);
     setButtonText("Submit");
     setAnswerStatus("");
@@ -149,7 +133,6 @@ function Home({ user }: NavbarProps) {
 
   // GO TO ANSWERS PAGE IF TIME RUN OUT
 
-  const specialChars = /^[a-zA-Z0-9]*$/;
   // FIREBASE STUFF
   const [name, setName] = useState<string>("");
   const [Data, setUserData] = useState<FirebaseData>(); // add userData to component state
@@ -164,8 +147,9 @@ function Home({ user }: NavbarProps) {
       setUserData(userData);
     }
   };
+  //////
 
-  //// DATABASE WRITES SECTION
+  const specialChars = /^[a-zA-Z0-9]*$/;
 
   const setOrUpdate = async () => {
     if (!user) {
@@ -173,6 +157,7 @@ function Home({ user }: NavbarProps) {
     } else {
       const filter = new BadWords();
       const isProfane = filter.isProfane(name);
+      console.log(name);
 
       if (isProfane) {
         alert("Display name contains profanity.");
@@ -237,9 +222,11 @@ function Home({ user }: NavbarProps) {
     }
   };
 
+  //// DATABASE WRITES SECTION
+
   useEffect(() => {
     if (round > 10) {
-      getfile();
+      const Data = getfile();
       setOrUpdate();
     }
   }, [round]);
@@ -264,7 +251,7 @@ function Home({ user }: NavbarProps) {
         name={name}
         handleRestart={handleRestart}
         setName={setName}
-        setOrUpdate={setOrUpdate}
+        setOrUpdate={() => setOrUpdate()}
       />
     );
   }
@@ -273,68 +260,39 @@ function Home({ user }: NavbarProps) {
   return (
     <div>
       <div className="Home">
-        <div className="homt">{`Round  ${round}/10`}</div>
-
-        <div>
-          <div>00:{time.toString().padStart(2, "0")}</div>
-          {score}
-        </div>
-
-        <div className="playsound">
-          {showSoundButton && (
-            <button className="" onClick={playSound} disabled={buttonDisabled}>
-              <FontAwesomeIcon icon={faVolumeUp} />
-            </button>
-          )}
-        </div>
         {buttonText === "Submit" ? (
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              newTurn(value);
-            }}
-          >
-            <input
-              className="homeinputs"
-              type="text"
-              value={value}
-              onChange={(event) => setValue(event.target.value)}
-              ref={inputRef}
-              readOnly={true}
-              maxLength={spell.length}
-              autoComplete="off"
-              spellCheck="false"
-              autoCapitalize="off"
-              autoCorrect={"false"}
-            />
-
-            <div className="subbut">
-              <button className="" type="submit">
-                {buttonText}
-              </button>
-            </div>
-          </form>
+          <Question
+            round={round}
+            time={time}
+            score={score}
+            showSoundButton={showSoundButton}
+            playSound={playSound}
+            buttonDisabled={buttonDisabled}
+            value={value}
+            spell={spell}
+            setValue={setValue}
+            answerStatus={answerStatus}
+            newTurn={newTurn}
+            inputRef={inputRef}
+            buttonText={buttonText}
+          />
         ) : (
-          <div>
-            <input
-              className="homeinputs"
-              type="text"
-              value={value}
-              onChange={(event) => setValue(event.target.value)}
-              ref={inputRef}
-              readOnly={true}
-              maxLength={spell.length}
-            />
-            <div>{spell}</div>
-
-            <button className="" onClick={nextTurn}>
-              {buttonText}
-            </button>
-          </div>
+          <Answer
+            round={round}
+            time={time}
+            score={score}
+            showSoundButton={showSoundButton}
+            playSound={playSound}
+            buttonDisabled={buttonDisabled}
+            value={value}
+            spell={spell}
+            setValue={setValue}
+            answerStatus={answerStatus}
+            nextTurn={nextTurn}
+            inputRef={inputRef}
+            buttonText={buttonText}
+          />
         )}
-        <div className={answerStatus === "correct" ? "correct" : "incorrect"}>
-          {answerStatus}
-        </div>
       </div>
     </div>
   );
