@@ -13,7 +13,6 @@ function Navbar({ user }: NavbarProps) {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("signed out");
         navigate("/");
       })
       .catch((error) => console.log(error));

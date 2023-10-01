@@ -62,7 +62,6 @@ const setOrUpdate = async (
           time: serverTimestamp(),
         });
         await set(displayNameRef, true);
-        console.log("Both database writes were successful");
       } catch (error) {
         console.error(
           "An error occurred while writing to the database:",
@@ -74,9 +73,7 @@ const setOrUpdate = async (
         score: score,
         time: serverTimestamp(),
       });
-      console.log("updated");
     } else {
-      console.log("Current score is not higher than the previous one");
     }
     handleRestart();
   }

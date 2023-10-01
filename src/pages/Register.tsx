@@ -52,7 +52,6 @@ export default function Register({ user }: NavbarProps) {
     signInWithEmailAndPassword(auth, semail, spassword)
       .then((userCredential) => {
         navigate("/");
-        console.log("signedin");
       })
       .catch((error) => {
         const errorCode = error.code;

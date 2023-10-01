@@ -9,7 +9,6 @@ const getfile = async (user: User | null) => {
     const userRef = ref(db, `users/${user.uid}`);
     const userSnap = await get(userRef);
     const userData = userSnap.val();
-    console.log(userData);
     return userData;
   }
 };

@@ -14,9 +14,6 @@ const UpdateScore = async (user: User | null, score: number, Data: any) => {
         score: score,
         time: serverTimestamp(),
       });
-      console.log("updated");
-    } else {
-      console.log("Current score is not higher than the previous one");
     }
   }
 };
