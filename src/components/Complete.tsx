@@ -13,7 +13,6 @@ const Complete: React.FC<CompleteProps> = ({
   setName,
   setOrUpdate,
 }) => {
-
   return (
     <div>
       <div className="Home">
@@ -60,8 +59,8 @@ const Complete: React.FC<CompleteProps> = ({
             <div>{`you got ${correct}/10 correct`}</div>
             <div>{`you scored ${score} points`}</div>
 
-            <button className="" onClick={setOrUpdate}>
-              save score
+            <button className="" onClick={handleRestart}>
+              play again
             </button>
           </div>
         )}
