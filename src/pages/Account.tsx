@@ -7,6 +7,7 @@ import { NavbarProps } from "../types/NavbarProps";
 
 function Account({ user }: NavbarProps) {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true)
   const [Score, setScore] = useState("");
   const [Name, setName] = useState("");
 
@@ -20,16 +21,24 @@ function Account({ user }: NavbarProps) {
       const userData = userSnap.val();
       setScore(userData.score);
       setName(userData.displayName);
+      setIsLoading(false);
     }
   };
+
   useEffect(() => {
     getfile();
   }, []);
 
   return (
     <>
-      <div className="ht">Well done {Name}</div>
-      <div className="hs">Your High Score is {Score}</div>;
+      {isLoading ? (
+        <div></div>
+      ) : (
+        <>
+          <div className="ht">Well done {Name}</div>
+          <div className="hs">Your High Score is {Score}</div>
+        </>
+      )}
     </>
   );
 }

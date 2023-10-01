@@ -5,7 +5,7 @@ export interface CompleteProps {
   user: User | null;
   correct: number;
   score: number;
-  Data: FirebaseData | undefined;
+  Data: string | undefined;
   name: string;
   handleRestart: () => Promise<void>;
   setName: (name: string) => void;
