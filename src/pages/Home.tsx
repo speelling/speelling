@@ -98,7 +98,7 @@ function Home({ user }: NavbarProps) {
 
   // SHOW ANSWERS PAGE FOR EACH SPELL / CORRECT/INCORRECT
 
-  function newTurn(userinput: string) {
+  const newTurn = (userinput: string) => {
     const isCorrect = checkAnswer(userinput);
     setIsActive(false);
     setButtonText("Next");
@@ -109,11 +109,11 @@ function Home({ user }: NavbarProps) {
     } else {
       setAnswerStatus("incorrect");
     }
-  }
+  };
 
   // GO TO THE NEXT  QUESTION
 
-  function nextTurn() {
+  const nextTurn = () => {
     setValue("");
 
     setTime(10);
@@ -123,9 +123,7 @@ function Home({ user }: NavbarProps) {
     setAnswerStatus("");
     setShowSoundButton(true);
     setTimeIsUp(false);
-  }
-
-
+  };
 
   // RESTART GAME
 
