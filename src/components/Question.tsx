@@ -46,7 +46,6 @@ const Question: React.FC<QuestionProps> = ({
           onChange={(event) => setValue(event.target.value)}
           ref={inputRef}
           readOnly={true}
-          maxLength={spell.length}
           autoComplete="off"
           spellCheck="false"
           autoCapitalize="off"
